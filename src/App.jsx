@@ -195,7 +195,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="interest"
                     id="verticalLines"
                   />
                   <label className="form-check-label" htmlFor="verticalLines">
@@ -207,7 +207,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="interest"
                     id="symmetry"
                   />
                   <label className="form-check-label" htmlFor="symmetry">
@@ -219,7 +219,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="interest"
                     id="leadingLines"
                   />
                   <label className="form-check-label" htmlFor="leadingLines">
@@ -231,7 +231,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="interest"
                     id="sunlight"
                   />
                   <label className="form-check-label" htmlFor="sunlight">
@@ -243,7 +243,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="interest"
                     id="lowLight"
                   />
                   <label className="form-check-label" htmlFor="lowLight">
@@ -377,7 +377,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="workshop"
                     id="definitely"
                   />
                   <label className="form-check-label" htmlFor="definitely">
@@ -388,7 +388,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="workshop"
                     id="permits"
                   />
                   <label className="form-check-label" htmlFor="permits">
@@ -399,7 +399,7 @@ export default function App() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="travel"
+                    name="workshop"
                     id="notSure"
                   />
                   <label className="form-check-label" htmlFor="notSure">
@@ -407,6 +407,245 @@ export default function App() {
                   </label>
                 </div>
               </div>
+
+              {/* EQUIPMENT */}
+              <h6 className="mt-3">EQUIPMENT</h6>
+              <div className="border rounded-4 p-3 mb-3 bg-light">
+                 <label className="form-label fw-semibold">
+                  What equipment do you shoot with?
+                </label>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="Mirrorless"
+                  />
+                  <label className="form-check-label" htmlFor="Mirrorless">
+                    Camera (DSLR / Mirrorless)
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="Camera"
+                  />
+                  <label className="form-check-label" htmlFor="Camera">
+                    Camera + Mobile
+                  </label>
+                </div>
+
+                 <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="mobileCamera"
+                  />
+                  <label className="form-check-label" htmlFor="mobileCamera">
+                    Mobile only but planning to buy a camera
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="mobileOnly"
+                  />
+                  <label className="form-check-label" htmlFor="mobileOnly">
+                    Mobile only
+                  </label>
+                </div>
+
+              </div>
+
+              <label className="form-label">
+                Camera Model
+              </label>
+              <textarea className="form-control mb-4" rows="3"></textarea>
+
+              <div className="border rounded-4 p-3 mb-3 bg-light">
+                <label className="form-label fw-semibold">
+                  Which lenses do you own?
+                </label>
+                 <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="lens"
+                  />
+                  <label className="form-check-label" htmlFor="lens">
+                    Kit lens
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="50mmPrime"
+                  />
+                  <label className="form-check-label" htmlFor="50mmPrime">
+                    50mm prime
+                  </label>
+                </div>
+
+                 <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="Telephoto"
+                  />
+                  <label className="form-check-label" htmlFor="Telephoto">
+                    Telephoto
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="equivalent"
+                  />
+                  <label className="form-check-label" htmlFor="equivalent">
+                    Wide angle (below 24mm full-frame equivalent)
+                  </label>
+                </div>
+
+                 <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="UltraWide"
+                  />
+                  <label className="form-check-label" htmlFor="UltraWide">
+                    Ultra-wide (16mm or wider)
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="whenNeeded"
+                  />
+                  <label className="form-check-label" htmlFor="whenNeeded">
+                    I rent lenses when needed
+                  </label>
+                </div>
+
+                 <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="focallengths"
+                  />
+                  <label className="form-check-label" htmlFor="focallengths">
+                    Not sure about focal lengths
+                  </label>
+
+                </div>
+              </div>
+
+               <div className="border rounded-2 p-2 mb-2">
+                <label className="form-label fw-semibold">
+                  Have you used a wide lens before?
+                </label>
+
+                 <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="focal"
+                      id="Frequently"
+                    />
+                    <label className="form-check-label" htmlFor="Frequently">
+                      Frequently
+                    </label>
+                  </div>
+
+                   <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="focal"
+                      id="fewTimes"
+                    />
+                    <label className="form-check-label" htmlFor="fewTimes">
+                      Few times
+                    </label>
+                  </div>
+
+
+                <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="focal"
+                      id="twice"
+                    />
+                    <label className="form-check-label" htmlFor="twice">
+                      Once or twice
+                    </label>
+                  </div>
+
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="focal"
+                      id="Never"
+                    />
+                    <label className="form-check-label" htmlFor="Never">
+                      Never
+                    </label>
+                  </div>
+               </div>
+
+               <div className="border rounded-2 p-2 mb-2">
+                <label className="form-label d-block">
+                  Are you willing to rent or borrow a wide lens for assignments if required?
+                </label>
+               
+                  <div className="form-check ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="assignments"
+                      id="assignmentsYes"
+                    />
+                    <label className="form-check-label" htmlFor="assignmentsYes">
+                      Yes
+                    </label>
+                  </div>
+
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="assignments"
+                      id="assignmentsNo"
+                    />
+                    <label className="form-check-label" htmlFor="assignmentsNo">
+                      No
+                    </label>
+                  </div>
+
+                  <div className="form-check ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="assignments"
+                      id="assignmentsMaybe"
+                    />
+                    <label className="form-check-label" htmlFor="assignmentsMaybe">
+                      Maybe
+                    </label>
+                  </div>
+                
+              </div>
+
               <button className="btn btn-primary w-100 rounded-pill py-2">
                 Submit Application
               </button>
