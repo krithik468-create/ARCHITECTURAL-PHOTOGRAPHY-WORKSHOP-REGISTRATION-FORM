@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import modPhotos from "./assets/img6.png"
 
 export default function App() {
 
@@ -37,12 +38,14 @@ export default function App() {
           opacity: opacity,
           transition: 'transform 0.1s linear, opacity 0.1s linear'
         }} >
-            <h1 className="fw-bold display-5">UI Form</h1>
+            {/* <h1 className="fw-bold display-5">UI Form</h1>
             <ul className="list-unstyled mt-4 fs-5">
               <li>✔ Minimal</li>
               <li>✔ Responsive</li>
               <li>✔ Customizable</li>
-            </ul>
+            </ul> */}
+
+            <img src={modPhotos} alt="img" width={"500px"} height={"300px"} />
             </div>
           </div>
          
