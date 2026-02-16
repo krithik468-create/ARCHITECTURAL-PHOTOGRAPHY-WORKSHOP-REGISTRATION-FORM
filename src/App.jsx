@@ -1,19 +1,49 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
+
+   const [scrollPos, setScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollPos(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate values (Adjust 300 to change how fast it fades/moves)
+  const opacity = Math.max(1 - scrollPos / 300, 0);
+  const translateX = Math.max(scrollPos / 2, 0) * -1; // Moves it left
+
+  // const dynamicStyle = {
+  //   position:"fixed",
+  //   top: '50%',
+  //       left: '10%',
+  //   transform: `translate(${translateX}px, -50%)`,
+  //       opacity: opacity,
+  //       zIndex: 1,
+  //       width: '300px'
+  // };
   return (
     <div className="d-flex align-items-center bg-gradient">
-      <div className="container">
-        <div className="row align-items-center g-4">
+      <div className="container-fluid">
+        <div className="row align-items-start">
            {/* LEFT CONTENT */}
-          <div className="col-lg-4 text-white">
+          <div className="col-lg-4 d-flex justify-content-center align-items-center" 
+         style={{ height: '100vh', position: 'sticky', top: 0 }}
+         >
+          <div  style={{ 
+          transform: `translateX(${translateX}px)`, 
+          opacity: opacity,
+          transition: 'transform 0.1s linear, opacity 0.1s linear'
+        }} >
             <h1 className="fw-bold display-5">UI Form</h1>
             <ul className="list-unstyled mt-4 fs-5">
               <li>✔ Minimal</li>
               <li>✔ Responsive</li>
               <li>✔ Customizable</li>
             </ul>
+            </div>
           </div>
          
           {/* CENTER FORM (DESKTOP) */}
@@ -1033,7 +1063,7 @@ export default function App() {
       {/* STYLES */}
       <style>{`
   .bg-gradient {
-    background: linear-gradient(135deg, #FEEAC9, #410445, #EE66A6) !important;
+    background: linear-gradient(90deg, #FEEAC9, #410445, #EE66A6) !important;
     
     animation: gradientMove 6s ease infinite !important;
   }
