@@ -6,7 +6,7 @@ export default function App() {
     <div className="d-flex align-items-center bg-gradient">
       <div className="container">
         <div className="row align-items-center g-4">
-          {/* LEFT CONTENT */}
+           {/* LEFT CONTENT */}
           <div className="col-lg-4 text-white">
             <h1 className="fw-bold display-5">UI Form</h1>
             <ul className="list-unstyled mt-4 fs-5">
@@ -15,7 +15,7 @@ export default function App() {
               <li>✔ Customizable</li>
             </ul>
           </div>
-
+         
           {/* CENTER FORM (DESKTOP) */}
           <div className="col-lg-5">
             <div className="card shadow-lg rounded-4 p-4 card-gradiant">
@@ -646,11 +646,366 @@ export default function App() {
                 
               </div>
 
+              {/* AVAILABILITY & WORK INTEREST */}
+               <h6 className="mt-3">AVAILABILITY & WORK INTEREST</h6>
+                <div className="border rounded-4 p-3 mb-3 bg-light">
+                  <label className="form-label fw-semibold">
+                  Are you primarily a wedding photographer?
+                </label>
+
+                  <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="weddingPhotographer"
+                      id="yesFullTime"
+                    />
+                    <label className="form-check-label" htmlFor="yesFullTime">
+                      Yes – full time
+                    </label>
+                  </div> 
+                </div>
+
+                <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="weddingPhotographer"
+                      id="yesPartTime"
+                    />
+                    <label className="form-check-label" htmlFor="yesPartTime">
+                      Yes – part time
+                    </label>
+                  </div> 
+                </div>
+
+                <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="weddingPhotographer"
+                      id="noMostly"
+                    />
+                    <label className="form-check-label" htmlFor="noMostly">
+                        No – I shoot other genres mostly
+                    </label>
+                  </div> 
+                </div>
+
+                 <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="weddingPhotographer"
+                      id="stillLearning"
+                    />
+                    <label className="form-check-label" htmlFor="stillLearning">
+                        Im still learning                   
+                    </label>
+                  </div> 
+                </div>
+              </div>
+
+              <div className="border rounded-2 p-2 mb-2">
+                <label className="form-label d-block">
+                  During non-muhurtham months, what do you usually do?
+                </label>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="muhurtham"
+                  />
+                  <label className="form-check-label" htmlFor="muhurtham">
+                    Photo editing for clients
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="videoEditing"
+                  />
+                  <label className="form-check-label" htmlFor="videoEditing">
+                    Video editing
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="otherPhotographers"
+                  />
+                  <label className="form-check-label" htmlFor="otherPhotographers">
+                   Assist other photographers
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="Freelance"
+                  />
+                  <label className="form-check-label" htmlFor="Freelance">
+                   Freelance shoots
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="differentJob"
+                  />
+                  <label className="form-check-label" htmlFor="differentJob">
+                  Work a different job / business
+                  </label>
+                </div>
+
+                 <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="mostlyFree"
+                  />
+                  <label className="form-check-label" htmlFor="mostlyFree">
+                  Mostly free / looking for work
+                  </label>
+                </div>
+
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="projectsLearning"
+                  />
+                  <label className="form-check-label" htmlFor="projectsLearning">
+                  Personal projects / learning
+                  </label>
+                </div>
+              </div>
+
+              <div className="border rounded-2 p-2 mb-2">
+                   <label className="form-label d-block">
+                   Approximately how many days per month are you available during off-season?
+                </label>
+                
+                <div className="form-check        ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="offSeason"
+                      id="zeroFiveDays"
+                    />
+                    <label className="form-check-label" htmlFor="zeroFiveDays">
+                      0–5 days
+                    </label>
+                  </div>
+                
+                <div className="form-check         ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="offSeason"
+                      id="fiveTenDays"
+                    />
+                    <label className="form-check-label" htmlFor="fiveTenDays">
+                      5–10 days
+                    </label>
+                  </div>
+
+                  <div className="form-check       ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="offSeason"
+                      id="tenTwentyDays"
+                    />
+                    <label className="form-check-label" htmlFor="tenTwentyDays">
+                      10–20 days
+                    </label>
+                  </div>
+
+                  <div className="form-check       ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="offSeason"
+                      id="fullMonth"
+                    />
+                    <label className="form-check-label" htmlFor="fullMonth">
+                      Almost full month
+                    </label>
+                  </div>
+              </div>   
+
+              <div className="border rounded-2 p-2 mb-2">
+                 <label className="form-label d-block">
+                   Would you be interested in assisting or working on architectural shoots in the future?
+                </label>
+
+                <div className="form-check        ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="architecturalShoots"
+                      id="yesDefinitely"
+                    />
+                    <label className="form-check-label" htmlFor="yesDefinitely">
+                     Yes definitely
+                    </label>
+                  </div>
+
+                  <div className="form-check        ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="architecturalShoots"
+                      id="schedule"
+                    />
+                    <label className="form-check-label" htmlFor="schedule">
+                     Yes depending on schedule
+                    </label>
+                  </div>
+
+                   <div className="form-check">
+    <input
+      className="form-check-input"
+      type="radio"
+      name="architecturalShoots"
+      id="notWork"
+    />
+    <label className="form-check-label" htmlFor="notWork">
+      Only learning, not work
+    </label>
+  </div>
+
+                  <div className="form-check        ">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="architecturalShoots"
+                      id="NotInterested"
+                    />
+                    <label className="form-check-label" htmlFor="NotInterested">
+                     Not interested in commercial work
+                    </label>
+                  </div>
+                </div> 
+
+                 <div className="border rounded-4 p-3 mb-3 bg-light">
+            <label className="form-label fw-semibold">
+                  Are you comfortable waking up early morning for shoots?
+                </label>
+
+                  <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="comfortable"
+                      id="yescomfortable"
+                    />
+                    <label className="form-check-label" htmlFor="yescomfortable">
+                      Yes
+                    </label>
+                  </div> 
+                </div>
+
+                 <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="comfortable"
+                      id="Sometimes"
+                    />
+                    <label className="form-check-label" htmlFor="Sometimes">
+                      Sometimes
+                    </label>
+                  </div> 
+                </div>
+
+                <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="comfortable"
+                      id="Difficult"
+                    />
+                    <label className="form-check-label" htmlFor="Difficult">
+                      Difficult
+                    </label>
+                  </div> 
+                </div>
+
+           </div>    
+
+            <div className="border rounded-4 p-3 mb-3 bg-light">
+               <label className="form-label fw-semibold">
+                  Are you comfortable following strict framing instructions during shoots?
+                </label>
+
+                <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="instructions"
+                      id="yesInstructions"
+                    />
+                    <label className="form-check-label" htmlFor="yesInstructions">
+                      Yes
+                    </label>
+                  </div> 
+                </div>
+
+                <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="instructions"
+                      id="Depends"
+                    />
+                    <label className="form-check-label" htmlFor="Depends">
+                      Depends
+                    </label>
+                  </div> 
+                </div>
+
+                <div className="d-flex justify-content">
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="instructions"
+                      id="creative"
+                    />
+                    <label className="form-check-label" htmlFor="creative">
+                      Prefer creative freedom
+                    </label>
+                  </div> 
+                </div>
+
+              </div>      
+
               <button className="btn btn-primary w-100 rounded-pill py-2">
                 Submit Application
               </button>
             </div>
           </div>
+
+          
 
           {/* RIGHT MOBILE MOCK FORM */}
           {/* <div className="col-lg-3 d-none d-lg-block">
