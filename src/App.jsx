@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import modPhotos from "./assets/img6.png"
 
 const App = () => {
   const [questionnaires, setQuestionnaires] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   console.log(error)
-
-  const [userInfo, setUserInfo] = useState({
-    name: "",
-    phone: "",
-    portfolio_link: "",
-    city: "",
-    willing_to_travel: ""
-  });
 
   const [answers, setAnswers] = useState({});
 
@@ -49,8 +43,6 @@ const App = () => {
     e.preventDefault();
 
     const payload = {
-      ...userInfo,
-      phone: Number(userInfo.phone),
       answer: questionnaires.map((group) => ({
         group_id: group.group_id,
         group_name: group.group_name,
@@ -86,90 +78,117 @@ const App = () => {
   };
 
   const renderInput = (q) => {
-    switch (q.question_type) {
-      case 'textarea':
-        return <textarea className="form-control" rows="3" onChange={(e) => handleValueChange(q.question_id, e.target.value)} />;
-      case 'text':
-        return <input type="text" className="form-control" onChange={(e) => handleValueChange(q.question_id, e.target.value)} />;
-      case 'radio':
-        return q.options?.map((opt, i) => (
-          <div className="form-check" key={i}>
-            <input className="form-check-input" type="radio" name={`q-${q.question_id}`} onChange={() => handleValueChange(q.question_id, opt)} />
-            <label className="form-check-label">{opt}</label>
-          </div>
-        ));
-      case 'checkbox':
-        return q.options?.map((opt, i) => (
-          <div className="form-check" key={i}>
-            <input className="form-check-input" type="checkbox" onChange={() => handleValueChange(q.question_id, opt, true)} />
-            <label className="form-check-label">{opt}</label>
-          </div>
-        ));
-      default: return null;
-    }
-  };
+  switch (q.question_type) {
+    case 'textarea':
+      return <textarea className="form-control" rows="3" onChange={(e) => handleValueChange(q.question_id, e.target.value)} />;
+
+    case 'text':
+      return <input type="text" className="form-control" onChange={(e) => handleValueChange(q.question_id, e.target.value)} />;
+    
+    case 'number':
+      return (
+    <input 
+      type="tel" // Use 'tel' to support maxLength while keeping the number keyboard
+      className="form-control" 
+      maxLength="10" 
+      onInput={(e) => {
+        // Optional: Extra safety to prevent non-numeric typing
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      }}
+      onChange={(e) => handleValueChange(q.question_id, e.target.value)} 
+    />
+  );
+    
+    case 'select':
+      return (
+        <select 
+          className="form-select" 
+          defaultValue="" 
+          onChange={(e) => handleValueChange(q.question_id, e.target.value)}
+        >
+          <option value="" disabled>Select an option</option>
+          {q.options?.map((opt, i) => (
+            <option key={i} value={opt}>{opt}</option>
+          ))}
+        </select>
+      );
+
+    case 'radio':
+      return q.options?.map((opt, i) => (
+        <div className="form-check" key={i}>
+          <input className="form-check-input" type="radio" name={`q-${q.question_id}`} onChange={() => handleValueChange(q.question_id, opt)} />
+          <label className="form-check-label">{opt}</label>
+        </div>
+      ));
+    case 'checkbox':
+      return q.options?.map((opt, i) => (
+        <div className="form-check" key={i}>
+          <input className="form-check-input" type="checkbox" onChange={() => handleValueChange(q.question_id, opt, true)} />
+          <label className="form-check-label">{opt}</label>
+        </div>
+      ));
+    default: return null;
+  }
+};
+
+
+   const [scrollPos, setScrollPos] = useState(0);
+
+  const opacity = Math.max(1 - scrollPos / 300, 0);
+  const translateX = Math.max(scrollPos / 2, 0) * -1;
+   useEffect(() => {
+    const handleScroll = () => setScrollPos(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (loading) return <div className="text-center mt-5"><div className="spinner-border text-primary"></div></div>;
-
+  
   return (
-    <div className="container py-5">
-      <h2 className="mb-4 text-primary">Submit Application</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="card mb-4">
-          <div className="card-header bg-primary text-white">Personal Information</div>
-          <div className="card-body row g-3">
-            {Object.keys(userInfo).map((field) => (
-              <div key={field} className="col-md-6">
-                <label className="form-label text-capitalize fw-bold">{field.replace(/_/g, ' ')}</label>
+  
+  <div className="d-flex align-items-center bg-gradient">
+    <div className="container-fluid">
+    <div className="row align-items-start">
+      {/* LEFT CONTENT - STICKY IMAGE */}
+      <div className="col-lg-4 d-flex justify-content-center align-items-center" style={{ height: '100vh', position: 'sticky', top: 0 }}>
+        <div style={{ transform: `translateX(${translateX}px)`, opacity: opacity, transition: 'transform 0.1s linear, opacity 0.1s linear' }}>
+          <img src={modPhotos} alt="img" width={"500px"} height={"300px"} />
+        </div>
+      </div>
+
+      {/* CENTER FORM */}
+     <div className="col-lg-5">
+        <div className="card shadow-lg rounded-4 p-4 card-gradiant">
+          <h4 className="mb-3 fw-semibold">Architectural Photography Workshop</h4>
+          
+          <form onSubmit={handleSubmit} className='w-100'>
+
+            {/* DYNAMIC QUESTIONNAIRES */}
+            {questionnaires.sort((a,b) => a.sequence - b.sequence).map((group) => (
+              <div key={group.group_id} className="mt-4">
+                {/* Group Name as a Label/Header */}
+                <label className="form-label fw-semibold text-primary">{group.group_name}</label>
                 
-                {field === 'willing_to_travel' ? (
-                  <div className="d-flex gap-3">
-                    {['Yes', 'No', 'Maybe'].map((opt) => (
-                      <div className="form-check" key={opt}>
-                        <input 
-                          className="form-check-input" 
-                          type="radio" 
-                          name="willing_to_travel" 
-                          id={`travel-${opt}`}
-                          value={opt}
-                          onChange={(e) => setUserInfo({...userInfo, willing_to_travel: e.target.value})}
-                        />
-                        <label className="form-check-label" htmlFor={`travel-${opt}`}>{opt}</label>
-                      </div>
-                    ))}
+                {group.questions.sort((a,b) => a.question_sequence - b.question_sequence).map((q) => (
+                  <div key={q.question_id} className="mb-3">
+                    <label className="form-label">{q.question}</label>
+                    {/* Ensure your renderInput(q) returns the clean Bootstrap classes (form-control, form-select, etc.) */}
+                    {renderInput(q)}
                   </div>
-                ) : (
-                  <input 
-                    type={field === 'phone' ? 'number' : 'text'} 
-                    className="form-control" 
-                    required
-                    onChange={(e) => setUserInfo({...userInfo, [field]: e.target.value})} 
-                  />
-                )}
+                ))}
               </div>
             ))}
-          </div>
+
+            <button type="submit" className="btn btn-primary btn-lg w-100 shadow mt-4 py-3" style={{ backgroundColor: '#0d6efd' }}>
+              Submit Application
+            </button>
+          </form>
         </div>
+        </div>
+        </div>
+     </div>
+  </div>
 
-        {questionnaires.sort((a,b) => a.sequence - b.sequence).map((group) => (
-          <div key={group.group_id} className="card mb-4 shadow-sm border-0">
-            <div className="card-header bg-light fw-bold">{group.group_name}</div>
-            <div className="card-body">
-              {group.questions.sort((a,b) => a.question_sequence - b.question_sequence).map((q) => (
-                <div key={q.question_id} className="mb-3">
-                  <label className="form-label fw-bold">{q.question}</label>
-                  {renderInput(q)}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-
-        <button type="submit" className="btn btn-primary btn-lg w-100 shadow mt-3 py-3" style={{ backgroundColor: '#0d6efd' }}>
-          Submit Application
-        </button>
-      </form>
-    </div>
   );
 };
 
