@@ -11,7 +11,7 @@ const App = () => {
   const [answers, setAnswers] = useState({});
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/get-all-questionners/')
+    fetch('https://registration-form-photography-mysql-node.onrender.com/get-all-questionners/')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch questionnaires');
         return res.json();
@@ -60,7 +60,7 @@ const App = () => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:3000/answer', {
+      const response = await fetch('https://registration-form-photography-mysql-node.onrender.com/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
